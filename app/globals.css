@@ -1,26 +1,112 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --color-fz-bg: var(--fz-bg);
+  --color-fz-surface: var(--fz-surface);
+  --color-fz-surface-2: var(--fz-surface-2);
+  --color-fz-border: var(--fz-border);
+  --color-fz-border-strong: var(--fz-border-strong);
+  --color-fz-ink: var(--fz-ink);
+  --color-fz-ink-2: var(--fz-ink-2);
+  --color-fz-ink-3: var(--fz-ink-3);
+  --color-fz-trust: var(--fz-trust);
+  --color-fz-trust-soft: var(--fz-trust-soft);
+  --color-fz-risk: var(--fz-risk);
+  --color-fz-risk-soft: var(--fz-risk-soft);
+  --color-fz-blocked: var(--fz-blocked);
+  --color-fz-blocked-soft: var(--fz-blocked-soft);
+  --color-fz-chain: var(--fz-chain);
+  --color-fz-chain-soft: var(--fz-chain-soft);
+  --color-fz-pending: var(--fz-pending);
+  --color-fz-pending-soft: var(--fz-pending-soft);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --fz-bg: #f0eee9;
+  --fz-surface: #ffffff;
+  --fz-surface-2: #f7f5f0;
+  --fz-border: #e4e0d8;
+  --fz-border-strong: #d4cfc4;
+  --fz-ink: #1a1a1a;
+  --fz-ink-2: #4a4a4a;
+  --fz-ink-3: #8a8a8a;
+  --fz-trust: #047857;
+  --fz-trust-soft: #d1fae5;
+  --fz-risk: #b45309;
+  --fz-risk-soft: #fef3c7;
+  --fz-blocked: #b91c1c;
+  --fz-blocked-soft: #fee2e2;
+  --fz-chain: #4338ca;
+  --fz-chain-soft: #e0e7ff;
+  --fz-pending: #475569;
+  --fz-pending-soft: #e2e8f0;
+
+  --background: var(--fz-bg);
+  --foreground: var(--fz-ink);
+  --card: var(--fz-surface);
+  --card-foreground: var(--fz-ink);
+  --popover: var(--fz-surface);
+  --popover-foreground: var(--fz-ink);
+  --primary: var(--fz-ink);
+  --primary-foreground: #ffffff;
+  --secondary: var(--fz-surface-2);
+  --secondary-foreground: var(--fz-ink);
+  --muted: var(--fz-surface-2);
+  --muted-foreground: var(--fz-ink-3);
+  --accent: var(--fz-surface-2);
+  --accent-foreground: var(--fz-ink);
+  --destructive: var(--fz-blocked);
+  --border: var(--fz-border);
+  --input: var(--fz-border);
+  --ring: var(--fz-ink);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-fz-bg text-fz-ink antialiased;
+  }
+  html {
+    @apply font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

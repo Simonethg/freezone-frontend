@@ -1,0 +1,8 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "installCommand": "npm install",
+  "env": {
+    "NEXT_PUBLIC_API_BASE_URL": "https://freezone-demo.vercel.app"
+  }
+}
