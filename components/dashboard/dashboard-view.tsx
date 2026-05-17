@@ -58,7 +58,11 @@ export function DashboardView() {
 
   if (loading && !data) {
     return (
-      <div className="mx-auto max-w-7xl space-y-6 px-4 py-8 sm:px-6">
+      <div
+        className="mx-auto max-w-7xl space-y-6 px-4 py-8 sm:px-6"
+        data-testid="dashboard-page"
+        data-stage={stage}
+      >
         <Skeleton className="h-10 w-full" />
         <Skeleton className="h-32 w-full" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
