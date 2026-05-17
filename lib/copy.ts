@@ -2,6 +2,7 @@ export const COPY = {
   brand: {
     name: "FreeZone",
     fullName: "FreeZone Enterprise Matrix",
+    signature: "Operational Financial Infrastructure",
     tagline: "Operational behavior into programmable trust.",
   },
   nav: {

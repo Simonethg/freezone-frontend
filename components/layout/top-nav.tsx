@@ -36,7 +36,7 @@ export function TopNav() {
                   className={cn(
                     "inline-flex min-h-11 min-w-11 items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fz-ink focus-visible:ring-offset-2",
                     active
-                      ? "bg-fz-ink text-white"
+                      ? "bg-fz-brand text-white"
                       : "text-fz-ink-2 hover:bg-fz-surface-2 hover:text-fz-ink"
                   )}
                   aria-current={active ? "page" : undefined}

@@ -221,7 +221,7 @@ export function DemoFlow() {
             type="button"
             variant={!showFinal ? "default" : "outline"}
             className={
-              !showFinal ? "bg-fz-ink text-white hover:bg-fz-ink/90" : ""
+              !showFinal ? "bg-fz-brand text-white hover:bg-fz-brand-hover" : ""
             }
             onClick={() => setShowFinal(false)}
           >
@@ -231,7 +231,7 @@ export function DemoFlow() {
             type="button"
             variant={showFinal ? "default" : "outline"}
             className={
-              showFinal ? "bg-fz-ink text-white hover:bg-fz-ink/90" : ""
+              showFinal ? "bg-fz-brand text-white hover:bg-fz-brand-hover" : ""
             }
             onClick={loadFinalState}
           >
@@ -245,7 +245,7 @@ export function DemoFlow() {
           type="button"
           data-testid="btn-run-demo"
           disabled={running}
-          className="min-h-11 bg-fz-ink text-white hover:bg-fz-ink/90"
+          className="min-h-11 bg-fz-brand text-white hover:bg-fz-brand-hover"
           onClick={runFullFlow}
         >
           {COPY.demo.runFull}

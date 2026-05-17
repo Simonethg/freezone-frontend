@@ -109,7 +109,7 @@ export function DashboardView() {
               variant={stage === "before" ? "default" : "ghost"}
               className={
                 stage === "before"
-                  ? "bg-fz-ink text-white hover:bg-fz-ink/90"
+                  ? "bg-fz-brand text-white hover:bg-fz-brand-hover"
                   : ""
               }
               onClick={() => setStage("before")}
@@ -121,7 +121,7 @@ export function DashboardView() {
               variant={stage === "after" ? "default" : "ghost"}
               className={
                 stage === "after"
-                  ? "bg-fz-ink text-white hover:bg-fz-ink/90"
+                  ? "bg-fz-brand text-white hover:bg-fz-brand-hover"
                   : ""
               }
               onClick={() => setStage("after")}

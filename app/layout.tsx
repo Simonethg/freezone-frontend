@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SkipLink } from "@/components/layout/skip-link";
+import { BRAND } from "@/lib/brand";
 import { COPY } from "@/lib/copy";
 import "./globals.css";
 
@@ -24,6 +25,13 @@ export const metadata: Metadata = {
     template: `%s | ${COPY.brand.name}`,
   },
   description: COPY.brand.tagline,
+  icons: {
+    icon: [
+      { url: BRAND.assets.favicon32, sizes: "32x32", type: "image/png" },
+      { url: BRAND.assets.favicon512, sizes: "512x512", type: "image/png" },
+    ],
+    apple: BRAND.assets.favicon512,
+  },
 };
 
 export default function RootLayout({

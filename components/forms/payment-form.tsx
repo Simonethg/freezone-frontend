@@ -117,7 +117,7 @@ export function PaymentForm({ demoState }: PaymentFormProps) {
         <Button
           type="submit"
           disabled={polling}
-          className="min-h-11 bg-fz-ink text-white hover:bg-fz-ink/90"
+          className="min-h-11 bg-fz-brand text-white hover:bg-fz-brand-hover"
         >
           {COPY.payments.submit}
         </Button>

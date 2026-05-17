@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, FileCheck, LineChart, Zap } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
+import { BRAND } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { COPY } from "@/lib/copy";
@@ -24,12 +26,23 @@ const flowSteps = [
 export default function LandingPage() {
   return (
     <div>
-      <section className="relative overflow-hidden border-b border-fz-border bg-gradient-to-b from-fz-surface to-fz-bg px-4 py-16 sm:px-6 sm:py-24">
+      <section className="relative overflow-hidden border-b border-fz-border bg-gradient-to-b from-fz-surface via-fz-brand-soft/30 to-fz-bg px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-fz-ink sm:text-5xl">
+          <Image
+            src={BRAND.assets.lockupHorizontal}
+            alt={COPY.brand.name}
+            width={320}
+            height={56}
+            className="mx-auto h-12 w-auto sm:h-14"
+            priority
+          />
+          <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-fz-brand-muted">
+            {COPY.brand.signature}
+          </p>
+          <h1 className="mt-8 text-3xl font-bold text-fz-ink sm:text-4xl">
             {COPY.brand.fullName}
           </h1>
-          <p className="mt-4 font-mono text-lg text-fz-ink-2">
+          <p className="mt-4 font-mono text-base text-fz-ink-2 sm:text-lg">
             {COPY.brand.tagline}
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-fz-ink-2">
@@ -40,7 +53,7 @@ export default function LandingPage() {
               href="/dashboard"
               className={cn(
                 buttonVariants(),
-                "min-h-11 w-full bg-fz-ink text-white hover:bg-fz-ink/90 sm:w-auto"
+                "min-h-11 w-full bg-fz-brand text-white hover:bg-fz-brand-hover sm:w-auto"
               )}
             >
               {COPY.landing.ctaDashboard}
@@ -107,7 +120,7 @@ export default function LandingPage() {
                 key={step}
                 className="flex min-w-[140px] shrink-0 flex-col items-center gap-2 text-center"
               >
-                <span className="flex size-10 items-center justify-center rounded-full bg-fz-ink text-sm font-semibold text-white">
+                <span className="flex size-10 items-center justify-center rounded-full bg-fz-brand text-sm font-semibold text-white">
                   {i + 1}
                 </span>
                 <span className="text-sm text-fz-ink-2">{step}</span>

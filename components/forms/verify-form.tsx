@@ -60,7 +60,7 @@ export function VerifyForm() {
       </div>
       <Button
         type="submit"
-        className="min-h-11 w-full bg-fz-ink text-white hover:bg-fz-ink/90 sm:w-auto"
+        className="min-h-11 w-full bg-fz-brand text-white hover:bg-fz-brand-hover sm:w-auto"
       >
         {COPY.verify.submit}
       </Button>

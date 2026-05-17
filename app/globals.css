@@ -33,6 +33,10 @@
   --color-fz-ink: var(--fz-ink);
   --color-fz-ink-2: var(--fz-ink-2);
   --color-fz-ink-3: var(--fz-ink-3);
+  --color-fz-brand: var(--fz-brand);
+  --color-fz-brand-hover: var(--fz-brand-hover);
+  --color-fz-brand-soft: var(--fz-brand-soft);
+  --color-fz-brand-muted: var(--fz-brand-muted);
   --color-fz-trust: var(--fz-trust);
   --color-fz-trust-soft: var(--fz-trust-soft);
   --color-fz-risk: var(--fz-risk);
@@ -49,24 +53,37 @@
 }
 
 :root {
-  --fz-bg: #f0eee9;
+  /* Brand manual v1.0 — indigo + slate */
+  --fz-brand: #0b3499;
+  --fz-brand-hover: #1e4fcc;
+  --fz-brand-soft: #eef2fb;
+  --fz-brand-muted: #6781c0;
+
+  --fz-bg: #f8fafc;
   --fz-surface: #ffffff;
-  --fz-surface-2: #f7f5f0;
-  --fz-border: #e4e0d8;
-  --fz-border-strong: #d4cfc4;
-  --fz-ink: #1a1a1a;
-  --fz-ink-2: #4a4a4a;
-  --fz-ink-3: #8a8a8a;
+  --fz-surface-2: #eef2fb;
+  --fz-border: #e2e8f0;
+  --fz-border-strong: #cbd5e1;
+
+  --fz-ink: #0c0c14;
+  --fz-ink-2: #64748b;
+  --fz-ink-3: #94a3b8;
+
+  /* Functional accents (product UI) */
   --fz-trust: #047857;
   --fz-trust-soft: #d1fae5;
   --fz-risk: #b45309;
   --fz-risk-soft: #fef3c7;
   --fz-blocked: #b91c1c;
   --fz-blocked-soft: #fee2e2;
-  --fz-chain: #4338ca;
-  --fz-chain-soft: #e0e7ff;
-  --fz-pending: #475569;
+
+  /* On-chain markers = brand indigo per manual */
+  --fz-chain: #0b3499;
+  --fz-chain-soft: #eef2fb;
+  --fz-pending: #64748b;
   --fz-pending-soft: #e2e8f0;
+
+  --fz-logo-tracking: -0.035em;
 
   --background: var(--fz-bg);
   --foreground: var(--fz-ink);
@@ -74,18 +91,18 @@
   --card-foreground: var(--fz-ink);
   --popover: var(--fz-surface);
   --popover-foreground: var(--fz-ink);
-  --primary: var(--fz-ink);
+  --primary: var(--fz-brand);
   --primary-foreground: #ffffff;
   --secondary: var(--fz-surface-2);
   --secondary-foreground: var(--fz-ink);
   --muted: var(--fz-surface-2);
   --muted-foreground: var(--fz-ink-3);
-  --accent: var(--fz-surface-2);
-  --accent-foreground: var(--fz-ink);
+  --accent: var(--fz-brand-soft);
+  --accent-foreground: var(--fz-brand);
   --destructive: var(--fz-blocked);
   --border: var(--fz-border);
   --input: var(--fz-border);
-  --ring: var(--fz-ink);
+  --ring: var(--fz-brand);
   --radius: 0.75rem;
 }
 
@@ -98,6 +115,11 @@
   }
   html {
     @apply font-sans;
+  }
+  h1,
+  h2,
+  h3 {
+    letter-spacing: var(--fz-logo-tracking);
   }
 }
 
