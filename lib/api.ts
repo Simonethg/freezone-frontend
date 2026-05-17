@@ -8,6 +8,9 @@ import type {
 } from "./types";
 import { API_BASE_URL } from "./config";
 import { COPY } from "./copy";
+import { resolveMockResponse } from "./mock-resolver";
+import { setMockMode } from "./mock-mode";
+import { debug } from "./utils";
 
 export class ApiError extends Error {
   constructor(
@@ -27,11 +30,22 @@ async function safeJson(r: Response): Promise<unknown> {
   }
 }
 
+function tryMockFallback<T>(path: string, method: string): T | null {
+  const mock = resolveMockResponse<T>(path, method);
+  if (mock !== null) {
+    setMockMode(true);
+    debug("[freezone] mock fallback:", method, path);
+    return mock;
+  }
+  return null;
+}
+
 export async function apiFetch<T>(
   path: string,
   options?: RequestInit & { isPublic?: boolean }
 ): Promise<T> {
   const url = `${API_BASE_URL}${path}`;
+  const method = (options?.method ?? "GET").toUpperCase();
   const headers: HeadersInit = {
     ...(options?.headers ?? {}),
   };
@@ -51,7 +65,9 @@ export async function apiFetch<T>(
   let response: Response;
   try {
     response = await fetch(url, init);
-  } catch {
+  } catch (error) {
+    const mock = tryMockFallback<T>(path, method);
+    if (mock !== null) return mock;
     throw new ApiError(0, COPY.errors.network);
   }
 
@@ -66,7 +82,9 @@ export async function apiFetch<T>(
     );
   }
 
-  return (await response.json()) as T;
+  const data = (await response.json()) as T;
+  setMockMode(false);
+  return data;
 }
 
 export async function apiUpload<T>(
@@ -74,16 +92,21 @@ export async function apiUpload<T>(
   form: FormData
 ): Promise<T> {
   const url = `${API_BASE_URL}${path}`;
+  const method = "POST";
   let response: Response;
   try {
     response = await fetch(url, { method: "POST", body: form });
   } catch {
+    const mock = tryMockFallback<T>(path, method);
+    if (mock !== null) return mock;
     throw new ApiError(0, COPY.errors.network);
   }
   if (!response.ok) {
     throw new ApiError(response.status, COPY.errors.upload);
   }
-  return (await response.json()) as T;
+  const data = (await response.json()) as T;
+  setMockMode(false);
+  return data;
 }
 
 export const api = {

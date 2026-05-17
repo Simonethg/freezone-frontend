@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/brand/logo";
+import { MockModeBadge } from "@/components/layout/mock-mode-badge";
 import { COPY } from "@/lib/copy";
 import { cn } from "@/lib/utils";
 
@@ -23,7 +24,10 @@ export function TopNav() {
         className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6"
         aria-label="Navegación principal"
       >
-        <Logo />
+        <div className="flex items-center gap-3">
+          <Logo />
+          <MockModeBadge />
+        </div>
         <ul className="flex flex-wrap items-center gap-1">
           {links.map((link) => {
             const active =

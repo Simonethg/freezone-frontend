@@ -11,6 +11,7 @@ export const COPY = {
     upload: "Cargar documento",
     payments: "Pagos",
     verify: "Verificar",
+    demoMode: "Modo demo",
     skipToMain: "Saltar al contenido principal",
   },
   status: {
