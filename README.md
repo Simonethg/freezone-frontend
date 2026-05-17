@@ -2,6 +2,10 @@
 
 Institutional dashboard for cross-border operational trust, document anchoring on Avalanche Fuji, reputation scoring, and payment orchestration.
 
+Official backend/demo API: [https://freezone-demo.vercel.app](https://freezone-demo.vercel.app)
+Technical submission package: [https://github.com/AAndrIng/freezone-submission-package](https://github.com/AAndrIng/freezone-submission-package)
+
+
 ## Stack
 
 - Next.js 14+ App Router (TypeScript strict)
